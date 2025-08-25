@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build and run main.cpp",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",                  // Debug-Info
+                "main.cpp",            // Deine Quelldatei
+                "Player.cpp",
+                "Ball.cpp",
+                "Punktestand.cpp",
+                "-o",
+                "main",                // Ausgabedatei
+                "-lraylib",            // raylib-Bibliothek
+                "-lm",                 // Mathe-Bibliothek
+                "-ldl",                // dynamisches Laden
+                "-lpthread",           // Threads
+                "-lGL",                // OpenGL
+                "-lX11"                // X11
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
