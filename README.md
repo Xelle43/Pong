@@ -12,13 +12,13 @@ The Project is **not** Optimized and was made **just** for the learning C++ and 
 
 ## Main Game
 #### Here the beautiful Gameplay ._. <br>
-![GamePlay](/MarkDownGif/Playing.gif)
+![GamePlay](/MarkDownGif/GamePlayGif.gif)
 
 #### With a Scoring System <br>
-![GOAAAALLL](/MarkDownGif/Goal.gif)
+![GOAAAALLL](/MarkDownGif/GoalGif.gif)
 
 #### And a scalable difficulty <br>
-![very difficult game play](/MarkDownGif/Scaling.gif)
+![very difficult game play](/MarkDownGif/ScalableGif.gif)
 
 ## How to play
 Player Inputs are: <br>
