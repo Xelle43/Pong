@@ -1,6 +1,7 @@
 #include "Ball.h"
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
 
 
 Ball::Ball(int xPos, int yPos){
@@ -19,62 +20,50 @@ y=yPos;
 int Ball::move(int speed,int player1Rect[], int player2Rect[]){
 
 frameCounter++;
-   
- if (frameCounter - lastCollision > 5)
-  {
 
     if (
-    (x < player2Rect[0] + player2Rect[2] &&
+    (x - width < player2Rect[0] + player2Rect[2] &&
      x + width > player2Rect[0] &&
-     y < player2Rect[1] + player2Rect[3] &&
+     y - height < player2Rect[1] + player2Rect[3] &&
      y + height > player2Rect[1]) ||
 
-    (x < player1Rect[0] + player1Rect[2] &&
+    (x - width < player1Rect[0] + player1Rect[2] &&
      x + width > player1Rect[0] &&
-     y < player1Rect[1] + player1Rect[3] &&
+     y - height < player1Rect[1] + player1Rect[3] &&
      y + height > player1Rect[1])
-     /*
-xy width height
-if(player1.x < player2.x + player2.width &&
-    player1.x + player1.width > player2.x &&
-    player1.y < player2.y + player2.height &&
-    player1.y + player1.height > player2.y)
+        )
+         {
+   //speed =0;
+   //ySpeed =0;
 
-
-
-*/
-
-
-   )
+    if (frameCounter - lastCollision > 5)
     {
+     
       right =! right;  
       ySpeed = GetNewRandom();
-      speedIncrease +=0.15;
+      speedIncrease *= 1.1;
+      lastCollision = frameCounter;
      
-
     }
-
-
-
-    if(y <=0 || y >= 580){
+    
+ }
+      if(y <=0 || y >= 580){
 
 
     ySpeed =ySpeed *-1;
 
 
-  }
-  lastCollision = frameCounter;
+     }
 
 
-
-  }
-
- 
-    
 
 
     x += right ? speed * speedIncrease: -speed * speedIncrease;
     y +=ySpeed * speedIncrease;
+
+
+
+
 
 if (x <= 0) {
     return 1;   // links
@@ -89,6 +78,21 @@ else {
 
 
 }
+
+
+
+     /*
+xy width height
+if(player1.x < player2.x + player2.width &&
+    player1.x + player1.width > player2.x &&
+    player1.y < player2.y + player2.height &&
+    player1.y + player1.height > player2.y)
+
+
+
+*/
+   
+  
 
 
 int Ball::GetNewRandom() {
