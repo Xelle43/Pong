@@ -17,7 +17,8 @@ y=yPos;
 
 
 }
-int Ball::move(int speed,int player1Rect[], int player2Rect[]){
+int Ball::move(int player1Rect[], int player2Rect[]){
+  
 
 frameCounter++;
 
@@ -33,8 +34,7 @@ frameCounter++;
      y + height > player1Rect[1])
         )
          {
-   //speed =0;
-   //ySpeed =0;
+  
 
     if (frameCounter - lastCollision > 5)
     {
@@ -58,7 +58,7 @@ frameCounter++;
 
 
 
-    x += right ? speed * speedIncrease: -speed * speedIncrease;
+    x += right ? Xspeed * speedIncrease: -Xspeed * speedIncrease;
     y +=ySpeed * speedIncrease;
 
 
@@ -115,5 +115,16 @@ void Ball::ResetBall(){
   y=300;
   x=600;
   speedIncrease =1;
+
+};
+
+void Ball::GameReset(){
+  ySpeed =0;
+  Xspeed =0;
+  y=500;
+  x=600;
+
+
+
 
 };

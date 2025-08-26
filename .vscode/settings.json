@@ -40,6 +40,12 @@
         "__split_buffer": "cpp",
         "__verbose_abort": "cpp",
         "execution": "cpp",
-        "locale": "cpp"
+        "locale": "cpp",
+        "__locale": "cpp",
+        "cstdarg": "cpp",
+        "ctime": "cpp",
+        "ios": "cpp",
+        "mutex": "cpp",
+        "streambuf": "cpp"
     }
 }

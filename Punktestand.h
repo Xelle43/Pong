@@ -7,7 +7,9 @@ class Punktestand{
     public:
     int Punkte;
          Punktestand(int StartPunkte);
-         void AddPunkte();
+         bool AddPunkte();
+         void SetPoints(int points);
+         int PointsToWin =0;
          
 
 

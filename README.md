@@ -20,6 +20,11 @@ The Project is **not** Optimized and was made **just** for the learning C++ and 
 #### And a scalable difficulty <br>
 ![very difficult game play](/MarkDownGif/ScalableGif.gif)
 
+#### Score Points to win 
+The Points can be set individuell
+
+![player 2 really kinda sucks](/MarkDownGif/WinningGif.gif)
+
 ## How to play
 Player Inputs are: <br>
  **W** and **S** for the first Player and<br>
