@@ -11,6 +11,7 @@ The Project is **not** Optimized and was made **just** for the learning C++ and 
 
 
 ## Main Game
+(the gifs are scuffed somehow ups)
 #### Here the beautiful Gameplay ._. <br>
 ![GamePlay](/MarkDownGif/GamePlayGif.gif)
 
