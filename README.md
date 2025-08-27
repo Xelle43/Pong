@@ -26,6 +26,10 @@ The Points can be set individuell
 
 ![player 2 really kinda sucks](/MarkDownGif/WinningGif.gif)
 
+#### And get Cool Winning Streaks
+
+![player 1 sucks even more](/MarkDownGif/WinningStreakGif.gif)
+
 ## How to play
 Player Inputs are: <br>
  **W** and **S** for the first Player and<br>

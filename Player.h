@@ -8,6 +8,7 @@ class Player{
         int y,x;
         int width =20;
         int height =150;
+        bool IsOnWinningStreak = false;
        
        
 

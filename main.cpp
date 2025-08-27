@@ -5,6 +5,41 @@
 #include "Punktestand.h"
 #include <string>
 
+void EndScreen(bool Player1,Rectangle button,bool hovered, int WinStreak){
+   int Unlimited = WinStreak - 5;
+   std::string humiliation = "(";
+   for(int i =0; i<WinStreak -2 && WinStreak <6 ;i++){
+    humiliation.append("even ");
+    
+   }
+   humiliation.append("more)");
+
+   std::string FinalText = (WinStreak > 2 && WinStreak < 6 ? humiliation : WinStreak >4 ? std::string("UNLIMITED X") + std::to_string(Unlimited): "");
+
+
+
+                DrawText(TextFormat(" Player %s won (Player %s kinda sucks %s)",
+                Player1 ? "1" : "2",
+                Player1 ? "2" : "1",
+                FinalText.c_str()),
+                WinStreak > 2 && WinStreak < 6 ? (260 - WinStreak * 50) : WinStreak >4 ? 120 : 260,
+                200, 39, GREEN);
+                if(WinStreak >=2)
+                {
+                    DrawText(TextFormat("PLAYER %s IS ON A x%i WINNING STREAK",
+                Player1 ? "1" : "2",
+                WinStreak),
+                 100, 20, 50, GREEN);
+
+                }
+    
+                DrawRectangleRec(button, hovered ? LIGHTGRAY : GRAY);
+                DrawText(TextFormat(" Play Again"), 500, 270, 40, DARKGRAY);
+                humiliation.clear();
+
+
+}
+
 int main(){
     InitWindow(1200,600,"PingPong");
     SetTargetFPS(60);
@@ -30,6 +65,9 @@ int main(){
     int firstTime =true;
     bool OnlyNumbers = false;
     int NumberTimer = 150;
+    int WinningStreak = 0;
+    bool Once = true;
+    
     
 
 
@@ -227,30 +265,48 @@ int main(){
 
         if(Player1Won || Player2Won){
 
-            
-            if(Player1Won)
+            if(Once ==true)
             {
-                DrawText(TextFormat(" Player 1 won (Player 2 kinda sucks)"), 260, 200, 40, GREEN);
-                DrawRectangleRec(button, hovered ? LIGHTGRAY : GRAY);
-                DrawText(TextFormat(" Play Again"), 500, 270, 40, DARKGRAY);
-                
-
+                if((Player1Won && player1.IsOnWinningStreak) || (Player2Won && player2.IsOnWinningStreak))
+            {
+                WinningStreak ++;
             }
             else{
-                 DrawText(TextFormat(" Player 2 won (Player 1 kinda sucks)"), 260, 200, 40, GREEN);
-                 DrawRectangleRec(button, hovered ? LIGHTGRAY : GRAY);
-                 DrawText(TextFormat(" Play Again"), 500, 270, 40, DARKGRAY);
+                WinningStreak = 1;
+                if(Player1Won)
+                {
+                    player1.IsOnWinningStreak =true;
+                    player2.IsOnWinningStreak =false;
+                   
+                }
+                else{
+                    player2.IsOnWinningStreak = true;
+                    player1.IsOnWinningStreak = false;
+                      
+                }
             }
+                Once = false;
+
+            }
+
+  
+
+        EndScreen(Player1Won,button,hovered,WinningStreak);
+
+          
 
 
             if(clicked){
-
             player1Punkte.Punkte =0;
             player2Punkte.Punkte =0;
             Player1Won =false;
             Player2Won =false;
             ball.Xspeed = 4;
             ball.ResetBall();
+            Once = true;
+            
+
+            
 
 
            }
@@ -272,9 +328,9 @@ int main(){
            {
             player2.y+=2;
            }
-
-
+        
             
+
 
 
         }

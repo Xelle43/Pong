@@ -10,6 +10,7 @@ class Punktestand{
          bool AddPunkte();
          void SetPoints(int points);
          int PointsToWin =0;
+        
          
 
 
